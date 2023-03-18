@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        line-height: 1.4;
+      }
+
+      .product-img {
+      }
+
+      /* PRODUCT */
+      .product {
+        border: 4px solid black;
+        width: 825px;
+        margin: 50px auto;
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 250px 1fr 1fr;
+        column-gap: 40px;
+      }
+
+      .product-title {
+        text-align: center;
+        font-size: 22px;
+        text-transform: uppercase;
+        background-color: #f7f7f7;
+        padding: 15px;
+        grid-column: 1 / -1;
+      }
+
+      /* PRODUCT INFORMATION */
+      .product-info {
+        /*  (825 - 8 - 250 - 80) / 2  */
+        /*   width: 243px; */
+        flex: 1;
+        margin-top: 20px;
+      }
+
+      .product-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .price {
+        font-size: 24px;
+      }
+
+      .shipping {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #777;
+      }
+
+      .sale {
+        background-color: #ec2f2f;
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        padding: 7px 15px;
+        display: inline-block;
+        position: absolute;
+        top: -17px;
+        left: -38px;
+
+        /*   width: 40px;
+  text-align: center; */
+      }
+
+      .product-description {
+        margin-bottom: 10px;
+      }
+
+      .more-info:link,
+      .more-info:visited {
+        color: black;
+        margin-bottom: 30px;
+        display: inline-block;
+      }
+
+      .more-info:hover,
+      .more-info:active {
+        text-decoration: none;
+      }
+
+      .product-colors {
+        display: flex;
+        gap: 10px;
+      }
+
+      .color {
+        background-color: #000;
+        height: 22px;
+        width: 22px;
+      }
+
+      .color-blue {
+        background-color: #2f6ee2;
+      }
+      .color-red {
+        background-color: #ec2f2f;
+      }
+      .color-yellow {
+        background-color: #f0bf1e;
+      }
+      .color-green {
+        background-color: #90cc20;
+      }
+      .color-brown {
+        background-color: #885214;
+      }
+
+      /* PRODUCT DETAILS */
+      .product-details {
+        /*   width: 243px; */
+        margin-top: 20px;
+        flex: 1;
+      }
+
+      .details-title {
+        text-transform: uppercase;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .details-list {
+        list-style: square;
+        margin-left: 20px;
+      }
+
+      .details-list li {
+        margin-bottom: 10px;
+      }
+
+      /* BUTTON */
+      .add-cart {
+        background-color: #000;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        border-top: 4px solid black;
+        grid-column: 1 / -1;
+      }
+
+      .add-cart:hover {
+        color: #000;
+        background-color: #fff;
+      }
+
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container--1 {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 40px;
+        margin: 40px;
+
+        /* CSS GRID */
+        display: grid;
+        /* grid-template-columns: 200px 200px 1fr 1fr; */
+        /* grid-template-rows: 300px 200px; */
+        /* grid-template-columns: 1fr 1fr 1fr auto; */
+
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        /* height: 500px; */
+
+        /* gap: 30px; */
+        column-gap: 20px;
+        row-gap: 40px;
+      }
+      .el--8 {
+        grid-column: 2 / 3;
+        /* grid-row: 1 / span 2; */
+        grid-row: 1 / 2;
+      }
+
+      .el--2 {
+        /* grid-column: 1 / 4; */
+        /* grid-column: 1 / span 4; */
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+
+      .el--6 {
+        /* grid-row: 3 / 5; */
+      }
+
+      .container--2 {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: black;
+        font-size: 40px;
+        margin: 100px;
+
+        width: 800px;
+        height: 600px;
+
+        /* CSS GRID */
+        display: grid;
+        grid-template-columns: 125px 200px 125px;
+        grid-template-rows: 250px 100px;
+        gap: 50px;
+
+        /* Aligning tracks inside container: distribute empty space */
+        justify-content: center;
+        /* justify-content: space-between; */
+        align-content: center;
+
+        /* Aligning items INSIDE cells: moving items around inside cells */
+        align-items: end;
+        justify-items: end;
+      }
+
+      .el--3 {
+        align-self: center;
+        justify-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="color-yellow">Back to home</a>
+
+    <article class="product">
+      <h2 class="product-title">Converse Chuck Taylor All Star Low Top</h2>
+      <img
+        src="https://i.imgur.com/ZrTU3VK.jpeg"
+        alt="Chuck Taylor All Star Shoe"
+        height="250"
+        width="250"
+        class="product-img"
+      />
+      <div class="product-info">
+        <div class="product-price">
+          <p class="price"><strong>$65.00</strong></p>
+          <p class="shipping">Free shipping</p>
+        </div>
+        <p class="sale">Sale</p>
+
+        <p class="product-description">
+          Ready to dress up or down, these classic canvas Chucks are an everyday
+          wardrobe staple.
+        </p>
+        <a href="https://converse.com" target="_blank" class="more-info"
+          >More information &rarr;</a
+        >
+
+        <div class="product-colors">
+          <div class="color"></div>
+          <div class="color color-blue"></div>
+          <div class="color color-red"></div>
+          <div class="color color-yellow"></div>
+          <div class="color color-green"></div>
+          <div class="color color-brown"></div>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <h3 class="details-title">Product details</h3>
+        <ul class="details-list">
+          <li>Lightweight, durable canvas sneaker</li>
+          <li>Lightly padded footbed for added comfort</li>
+          <li>Iconic Chuck Taylor ankle patch.</li>
+        </ul>
+      </div>
+      <button class="add-cart">Add to cart</button>
+    </article>
+
+    <div class="container--1">
+      <div class="el el--1">(1) HTML</div>
+      <div class="el el--2">(2) and</div>
+      <div class="el el--3">(3) CSS</div>
+      <div class="el el--4">(4) are</div>
+      <div class="el el--5">(5) amazing</div>
+      <div class="el el--6">(6) languages</div>
+      <div class="el el--7">(7) to</div>
+      <div class="el el--8">(8) learn</div>
+    </div>
+
+    <div class="container--2">
+      <div class="el el--1">(1)</div>
+      <div class="el el--3">(3)</div>
+      <div class="el el--4">(4)</div>
+      <div class="el el--5">(5)</div>
+      <div class="el el--6">(6)</div>
+      <div class="el el--7">(7)</div>
+    </div>
+  </body>
+</html>
